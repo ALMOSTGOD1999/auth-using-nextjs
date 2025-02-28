@@ -1,5 +1,4 @@
-import { verify } from "crypto";
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -25,11 +24,11 @@ const userSchema = new mongoose.Schema({
     default: false,
   },
   forgotPasswordToken: String,
-  forgotPasswordTokenExpiery: Date,
+  forgotPasswordTokenExpiry: Date,
   verifyToken: String,
-  verifyTokenExpiery: Date,
+  verifyTokenExpiry: Date,
 });
 
-const User = mongoose.models.users || mongoose.models("users", userSchema);
+const User = mongoose.models.users || mongoose.model("users", userSchema);
 
 export default User;
